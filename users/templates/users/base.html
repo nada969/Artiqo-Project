@@ -1,26 +1,29 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Django Blog{% endblock %}</title>
-    {% comment %} <link rel="stylesheet" href="{% static 'css/styles.css' %}"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    {% comment %} <header>
+    <header>
         <nav>
             <ul>
                 <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'posts' %}">Blog Posts</a></li>
+                <li><a href="{% url 'products' %}">Products</a></li>
                 <li><a href="{% url 'login' %}">Login</a></li>
-                <li><a href="{% url 'register' %}">Register</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li> 
+                
             </ul>
         </nav>
-    </header> {% endcomment %}
+    </header> 
 
     <div class="content">
         {% block content %}
-        <!-- Page-specific content goes here --> <p> Users Page</p>
+            <p> Users Page</p>
         {% endblock %}
     </div>
 
@@ -28,6 +31,6 @@
         <p>&copy; 2024 Django Blog</p>
     </footer>
 
-    {% comment %} <script src="{% static 'js/scripts.js' %}"></script> {% endcomment %}
+    <script src="{% static 'js/scripts.js' %}"></script>
 </body>
 </html>

@@ -1,4 +1,5 @@
 from django.db import models
+# from django.contrib.auth.models import AbstractUser,Group,Permission
 
 class Users(models.Model):
     user_id = models.IntegerField()
@@ -7,9 +8,10 @@ class Users(models.Model):
     password = models.CharField(max_length=200)
     role = models.CharField(
         choices=(
-            (1 , 'Admin') , 
-            (2, 'Artist') , 
-            (3, 'Client')
+            ('Admin' , 'Admin') , 
+            ('Artist', 'Artist') , 
+            ('Client', 'Client')
         ),
-        max_length=1
+        max_length=10
     )
+
