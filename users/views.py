@@ -3,16 +3,21 @@ from django.urls import reverse
 from django.contrib.auth import login , authenticate
 from django.contrib.auth.forms import UserCreationForm , AuthenticationForm
 from django.contrib import messages
+from product.models import Product
+from users.models import Users
 
 # Create your views here.
 def userRole(request):
     return render(request,'users/base.html')
 
 def home(request):
-    return render(request,'users/home.html')
+    products = Product.objects.filter(is_sold=False)
+    users = Users.objects.filter(role='Artist',products__is_sold=False).distinct()
+    return render(request,'users/home.html',{'products':products , 'users':users})
 
 def products(request):
     pass
+
 
 def login_user(request):
     if request.method == 'POST':
