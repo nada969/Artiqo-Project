@@ -18,6 +18,8 @@ def home(request):
 def products(request):
     pass
 
+def profile(request):
+    pass
 
 def login_user(request):
     if request.method == 'POST':
