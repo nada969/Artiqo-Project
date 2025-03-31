@@ -45,3 +45,22 @@ footer {
     background-color: #333;
     color: white;
 }
+/* Custom styles for form buttons */
+.btn-primary {
+    background-color: #1d5f7a;
+    border-color: #1d5f7a;
+}
+
+.btn-secondary {
+    background-color: #3b768f;
+    border-color: #3b768f;
+}
+
+/* Add spacing between forms */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+hr {
+    margin: 1.5rem 0;
+}

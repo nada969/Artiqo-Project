@@ -3,7 +3,7 @@ from users.models import Users
 
 class Product(models.Model):
     # product_id = models.AutoField()      #### Unnecessary because Django adds `id` automatically
-    name = models.CharField(max_length=100, blank=True)
+    name = models.CharField(max_length=100)
     story = models.TextField(blank=True,null=True)
     price = models.FloatField()
     quantity = models.IntegerField()

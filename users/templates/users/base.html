@@ -15,9 +15,13 @@
             <ul>
                 <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'products' %}">Products</a></li>
-                <li><a href="{% url 'login' %}">Login</a></li>
-                <li><a href="{% url 'register' %}">Register</a></li> 
-                
+                {% if login %}
+                    <li><a href="{% url 'cart' %}">Cart</a></li>
+                    <li><a href="{% url 'profile' %}">Profile</a></li> 
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'register' %}">Register</a></li> 
+                {% endif %}
             </ul>
         </nav>
     </header> 

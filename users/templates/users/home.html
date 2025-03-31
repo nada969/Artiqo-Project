@@ -20,6 +20,7 @@
                                 <div class="p-6 bg-white rounded-b-xl">
                                     <h2 class="text-2xl">{{ product.name }}</h2>
                                     <p class="text-gray-500">Price: {{ product.price }}</p>
+                                    <a href="{% url 'products:productdetails' product.pk %}" class="text-gray-500">more details</a>
                                 </div>
                                 
                                 <div class="p-6 bg-white rounded-b-xl">

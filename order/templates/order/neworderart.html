@@ -1,7 +1,73 @@
 {% extends "users/base.html" %}
 
-{% block title %}neworderart{% endblock %}
+{% block title %}new order art{% endblock %}
 
 {% block content %}
+    <div class="container mt-4">
+        <h2>Add order art</h2>
+        
+        <form method="post" class="mt-4">
+            {% csrf_token %}
+            
+            <div class="form-group row mb-3">
+                <label for="{{ form.user.id_for_label }}" class="col-sm-2 col-form-label">{{ form.labels.user }}</label>
 
+                <label for="{{ form.user.id_for_label }}" class="col-sm-2 col-form-label">{{ form.labels.artist_email }}</label>
+                <label for="{{ form.user.id_for_label }}" class="col-sm-2 col-form-label">{{ form.labels.art_name }}</label>
+                <div class="col-sm-4 d-flex">
+                    {{ form.user }}
+                    <a href="#" class="btn btn-sm btn-outline-secondary mx-2">
+                        <i class="fas fa-pencil-alt"></i>
+                    </a>
+                    <a href="#" class="btn btn-sm btn-outline-success mx-2">
+                        <i class="fas fa-plus"></i>
+                    </a>
+                    <a href="#" class="btn btn-sm btn-outline-primary mx-2">
+                        <i class="fas fa-eye"></i>
+                    </a>
+                </div>
+                {% if form.user.errors %}
+                    <div class="text-danger small">{{ form.user.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <hr>
+            
+            <div class="form-group row mb-3">
+                <label for="{{ form.artist_email.id_for_label }}" class="col-sm-2 col-form-label">{{ form.artist_email.label }}</label>
+                <div class="col-sm-6">
+                    {{ form.artist_email }}
+                </div>
+                {% if form.artist_email.errors %}
+                    <div class="text-danger small">{{ form.artist_email.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <div class="form-group row mb-3">
+                <label for="{{ form.art_name.id_for_label }}" class="col-sm-2 col-form-label">{{ form.art_name.label }}</label>
+                <div class="col-sm-6">
+                    {{ form.art_name }}
+                </div>
+                {% if form.art_name.errors %}
+                    <div class="text-danger small">{{ form.art_name.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <div class="form-group row mb-3">
+                <label for="{{ form.story.id_for_label }}" class="col-sm-2 col-form-label">{{ form.story.label }}</label>
+                <div class="col-sm-6">
+                    {{ form.story }}
+                </div>
+                {% if form.story.errors %}
+                    <div class="text-danger small">{{ form.story.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <hr>
+            
+            <div class="button-group">
+                <button type="submit" class="btn btn-primary" href="{% url 'home' %}">submit</button>
+            </div>
+        </form>
+    </div>
 {% endblock %}
