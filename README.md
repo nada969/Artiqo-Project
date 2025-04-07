@@ -33,7 +33,8 @@ Artiqo is your go-to online marketplace that connects local artists (aka creativ
           - /cart/{userId}/update	,PUT,	Update product quantity
           - /cart/{userId}/remove/{productId}	,DELETE,	Remove a product from the cart
 - Orders:
-          - /order/neworderart/           ,Get,     to order a new art from spacific artist
+          - /order/neworderart/           ,Get,     to view the orders
+          
 - Admin:
           -  /admin/          ,Get,   to vieww the admin page
 
