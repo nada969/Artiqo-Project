@@ -1,5 +1,6 @@
 🎨 Artiqo: Where Local Talent Meets Digital Magic
 🌟 Project Name:
+
 Artiqo – The Artsy Marketplace for Local Legends
 
 📌 What’s This All About?
