@@ -1,7 +1,6 @@
 from django.shortcuts import render , get_object_or_404
 from product.models import Product
 from rest_framework import generics
-from .models import Product
 from .serializers import ProductSerializer
 
 # Create your views here.

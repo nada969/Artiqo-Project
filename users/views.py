@@ -5,6 +5,9 @@ from django.contrib.auth.forms import UserCreationForm , AuthenticationForm
 from django.contrib import messages
 from product.models import Product
 from users.models import Users
+from rest_framework import generics
+from .serializers import UserSerializer
+
 
 # Create your views here.
 def userRole(request):
@@ -38,7 +41,6 @@ def login_user(request):
         form = AuthenticationForm()
     return render(request,'users/login.html',{'form':form})
 
-
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -49,3 +51,7 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request,'users/register.html',{'form':form})
+
+class UserListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Users.objects.all()
+    serializer_class = UserSerializer
