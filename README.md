@@ -17,3 +17,5 @@ Artiqo is an online marketplace designed to connect local artists with potential
 ✅ Frontend: React.js (future work)
 ✅ Database: MySQL 
 ✅ Authentication: JWT 
+
+![image](https://github.com/user-attachments/assets/7b4b7b9c-1180-4175-b6db-4e7e82ecc139)
