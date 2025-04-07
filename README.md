@@ -22,26 +22,26 @@ Artiqo is your go-to online marketplace that connects local artists (aka creativ
 
 📡 API Endpoints :
 
-Users : 	
+- Users : 	
           /users/register	,POST,	Register a new user
           /users/login	,POST,	Log in and get that sweet access
           /users/{userId}/profile	,GET,	View a user's profile
           /users/{userId}/profile	,PUT,	Update user profile
-Products:	
+- Products:	
           /products	,GET,	View all products
           /products	,POST,	Artists can add a new product
           /products/{productId}	,GET,	View a single product
           /products/{productId}	,PUT,	Update product details
           /products/{productId}/remove	,DELETE,	Delete a product
-Cart:	
+- Cart:	
           /cart/{userId}	,GET,	View the user’s cart
           /cart/{userId}/add	,POST,	Add a product to the cart
           /cart/{userId}/update	,PUT,	Update product quantity
           /cart/{userId}/remove/{productId}	,DELETE,	Remove a product from the cart
-Orders:
+- Orders:
           /orders/{userId}	,GET,	View all orders by the user
           /orders/{orderId}	,GET,	View a specific order
           /orders/{userId}/add	,POST,	Create a new order
           /orders/{userId}/cancel	,PUT,	Cancel an order (status update)
-Payments	
+- Payments	
           /payment/{paymentId}	,POST,	Make a payment
