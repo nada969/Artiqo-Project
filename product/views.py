@@ -1,8 +1,8 @@
 from django.shortcuts import render , get_object_or_404
 from product.models import Product
 from rest_framework import generics
-from .models import OrderArt
-from .serializers import OrderArtSerializer
+from .models import Product
+from .serializers import ProductSerializer
 
 # Create your views here.
 def detail(request, pk):
@@ -10,5 +10,6 @@ def detail(request, pk):
 
     return render(request, 'product/productdetails.html', {'product': product})
 
-
-def 
+class ProductArtListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
