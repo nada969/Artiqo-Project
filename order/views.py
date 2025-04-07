@@ -3,11 +3,9 @@ from .forms import OrderArtForm
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-
-
-# Create your views here.
-def neworderart(request):
-    return render(request,'order/neworderart.html')
+from rest_framework import generics
+from .models import OrderArt
+from .serializers import OrderArtSerializer
 
 @login_required
 def place_order(request):
@@ -43,4 +41,7 @@ def place_order(request):
     
     return render(request, 'order/neworderart.html', {'form': form})
 
-    
+class OrderArtListCreateAPIView(generics.ListCreateAPIView):
+    queryset = OrderArt.objects.all()
+    serializer_class = OrderArtSerializer
+
