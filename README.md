@@ -15,32 +15,64 @@ Artiqo is your go-to online marketplace that connects local artists (aka creativ
 
 🛠️ Tech Behind the Magic
 - Backend: Python (Django – solid, like your favorite sketchbook)
-- Frontend: React.js (coming soon to a browser near you!)
 - Database: MySQL (storing art data like it’s the Louvre)
 - Authentication: JWT (for login that doesn’t mess around)
 
 📡 API Endpoints :
 
-- Users : 	
-          /users/register	,POST,	Register a new user
-          /users/login	,POST,	Log in and get that sweet access
-          /users/{userId}/profile	,GET,	View a user's profile
-          /users/{userId}/profile	,PUT,	Update user profile
+- Users :
+          - /users 	          ,GET,    view home page
+          - /users/register	,POST,	Register a new user
+          - /users/login	,POST,	Log in and get that sweet access
+            
+- Products:	
+          - /products/{productId}	,GET,	View a single product
+- Cart:	
+          - /cart/{userId}	,GET,	View the user’s cart
+          - /cart/{userId}/add	,POST,	Add a product to the cart
+          - /cart/{userId}/update	,PUT,	Update product quantity
+          - /cart/{userId}/remove/{productId}	,DELETE,	Remove a product from the cart
+- Orders:
+          - /order/neworderart/           ,Get,     to order a new art from spacific artist
+- Admin:
+          -  /admin/          ,Get,   to vieww the admin page
+
+
+
+Next Steps:
+
+✅ Implement the order workflow:
+Users place an order via neworder.html.
+Send order requests to the artist via email.
+✅ Implement the cart functionality:
+If the user is logged in, items are added to the cart.
+If the user is not logged in, redirect them to login.html.
+✅ Implement user authentication features:
+Logout functionality
+Profile management (profile.html)
+Cart view (cart.html)
+✅ Payment System:
+Secure payments with idempotency to avoid double charges or chaos. source  
+Payment status updates included: pending, completed, failed.
+
+
+✅ Frontend: React.js
+
+✅  API Endpoints :
+- Users :
+          - /users/{userId}/profile	,GET,	View a user's profile
+          - /users/{userId}/profile	,PUT,	Update user profile
 - Products:	
           /products	,GET,	View all products
           /products	,POST,	Artists can add a new product
-          /products/{productId}	,GET,	View a single product
           /products/{productId}	,PUT,	Update product details
           /products/{productId}/remove	,DELETE,	Delete a product
-- Cart:	
-          /cart/{userId}	,GET,	View the user’s cart
-          /cart/{userId}/add	,POST,	Add a product to the cart
-          /cart/{userId}/update	,PUT,	Update product quantity
-          /cart/{userId}/remove/{productId}	,DELETE,	Remove a product from the cart
-- Orders:
+-Orders:
           /orders/{userId}	,GET,	View all orders by the user
           /orders/{orderId}	,GET,	View a specific order
           /orders/{userId}/add	,POST,	Create a new order
           /orders/{userId}/cancel	,PUT,	Cancel an order (status update)
 - Payments	
           /payment/{paymentId}	,POST,	Make a payment
+
+
