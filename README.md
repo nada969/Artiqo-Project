@@ -20,8 +20,8 @@ Artiqo is your go-to online marketplace that connects local artists (aka creativ
 ✅ Database: MySQL (storing art data like it’s the Louvre)
 ✅ Authentication: JWT (for login that doesn’t mess around)
 
-📡 API Endpoints (aka How the Magic Flows)
-Entity	Endpoint	Method	What It Does
+📡 API Endpoints :
+
 Users : 	
           /users/register	,POST,	Register a new user
           /users/login	,POST,	Log in and get that sweet access
