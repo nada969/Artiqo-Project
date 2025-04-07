@@ -21,19 +21,20 @@ Artiqo is your go-to online marketplace that connects local artists (aka creativ
 📡 API Endpoints :
 
 - Users :
-          - /users 	          ,GET,    view home page
+          - /users/viewUsersT , Get, View users
           - /users/register	,POST,	Register a new user
           - /users/login	,POST,	Log in and get that sweet access
             
 - Products:	
           - /products/{productId}	,GET,	View a single product
+          - /products/products     , Get, view all products
 - Cart:	
           - /cart/{userId}	,GET,	View the user’s cart
           - /cart/{userId}/add	,POST,	Add a product to the cart
           - /cart/{userId}/update	,PUT,	Update product quantity
           - /cart/{userId}/remove/{productId}	,DELETE,	Remove a product from the cart
 - Orders:
-          - /order/neworderart/           ,Get,     to view the orders
+          - /order/orderartview/ Get,     to view the orders
           
 - Admin:
           -  /admin/          ,Get,   to vieww the admin page

@@ -8,3 +8,5 @@ urlpatterns =[
     path('<int:pk>/',views.detail,name='productdetails'),
     path('products/',views.ProductArtListCreateAPIView.as_view())
 ]
+
+
