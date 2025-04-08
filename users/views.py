@@ -5,9 +5,7 @@ from django.contrib.auth.forms import UserCreationForm , AuthenticationForm
 from django.contrib import messages
 from product.models import Product
 from users.models import Users
-from rest_framework import generics
-from .serializers import UserSerializer
-
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 def userRole(request):
@@ -51,7 +49,3 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request,'users/register.html',{'form':form})
-
-class UserListCreateAPIView(generics.ListCreateAPIView):
-    queryset = Users.objects.all()
-    serializer_class = UserSerializer
