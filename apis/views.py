@@ -13,10 +13,10 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth import authenticate 
 
 
-# # @api_view(['GET','POST'])
-# class UserListCreateAPIView(generics.ListCreateAPIView):
-#     queryset = Users.objects.all()
-#     serializer_class = UserSerializer
+# @api_view(['GET','POST'])
+class UserListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Users.objects.all()
+    serializer_class = UserSerializer
 
 
 # Register API
