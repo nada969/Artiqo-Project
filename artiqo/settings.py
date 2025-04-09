@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'rest_framework',
-    # 'rest_framework.authtoken',
+    'rest_framework.authtoken',
     # 'rest_framework_simplejwt',
 
 
@@ -171,3 +171,12 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = '@example.com'
 EMAIL_HOST_PASSWORD = 'your_email_password'  # Use an App Password if using Gmail
+
+AUTH_USER_MODEL = 'users.Users'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    # Other settings...
+}

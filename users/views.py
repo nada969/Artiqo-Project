@@ -16,8 +16,6 @@ def home(request):
     users = Users.objects.filter(role='Artist',products__is_sold=False).distinct()
     return render(request,'users/home.html',{'products':products , 'users':users})
 
-def products(request):
-    pass
 
 def profile(request):
     pass

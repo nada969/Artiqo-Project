@@ -9,7 +9,7 @@ class OrderArtForm(forms.ModelForm):
             'story': forms.Textarea(attrs={'rows': 8, 'cols': 40}),
         }
         labels = {
-            'user': 'User:',
+            'user': 'User',
             'artist_email': 'Artist email:',
             'art_name': 'Art name:',
             'story': 'Story:',
