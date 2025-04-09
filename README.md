@@ -21,8 +21,14 @@ Artiqo is your go-to online marketplace that connects local artists (aka creativ
 📡 API Endpoints :
 
 - Users :
-          - /users/viewUsersT , Get, View users
+          - /users/viewUsers , Get, View users
           - /users/register	,POST,	Register a new user
+  {
+    "name": "Ali",
+    "email": "alinims@gmail.com",
+    "password": "41268",
+    "role": "Client"
+}
           - /users/login	,POST,	Log in and get that sweet access
             
 - Products:	
