@@ -1,4 +1,52 @@
-🎨 Artiqo: Where Local Talent Meets Digital Magic
+
+**# 1- Introduction**
+
+**## Objectives**
+
+- Artists can showcase their arts, each art has its unique vibe.
+- Buyers can see the arts, and order.
+- Buyer can order his special order, and the artist will receive a mail of this order.
+- Admin can monetize the platform through transaction fees, subscriptions, or featured listings
+
+**## Scope**
+
+Build an online marketplace where local artists can showcase and sell their drawings. This platform will connect artists with buyers.
+
+**## Stakeholders**
+
+- Artist want to showcase their arts.
+- Buyers want to find their special test of art.
+
+**# 2- Functional Requirements**
+
+- Buyer can create his profile.
+- Buyer can see the arts categorized by their artist.
+- Buyer can order his own art.
+- Buyer can search for an art.
+- recommended relevant arts for user based on his order.
+- Buyer complete his payment
+- Artist see the orders from his arts.
+- Artist receive the special art ordered via mail.
+- Artist can upload the new art.
+
+**# 3- Data Requirements**
+
+- Users
+- Products
+- Orders
+- Carts
+- Payments
+
+**# 4- Tools and Technologies**
+
+- Django /python
+
+- MySQL Data Base
+- **REST API/** postman
+
+---
+
+**API Design:**
 🌟 Project Name:
 Artiqo – The Artsy Marketplace for Local Legends
 
