@@ -47,26 +47,6 @@ Build an online marketplace where local artists can showcase and sell their draw
 ---
 
 **API Design:**
-🌟 Project Name:
-Artiqo – The Artsy Marketplace for Local Legends
-
-📌 What’s This All About?
-Artiqo is your go-to online marketplace that connects local artists (aka creative geniuses) with awesome buyers who love unique, handmade goods. 🎁 Whether you're here to sell your soul on canvas or snag some rare art for your wall, Artiqo makes it smooth with features like secure logins, organized product listings, a chill cart system, and safe payments. 🎨🛒💳
-
-✨ What Makes Artiqo Shine?
-- User Roles – Artists do the uploading, buyers do the buying. Everyone wins!
-- Product Listings – Artists can add, tweak, or remove their masterpieces.
-- Cart System – Add it, update it, buy it—your cart, your rules.
-- Order Management – Keep tabs on your past and present purchases.
-- Payments – Smooth, secure, and with status updates so you know what’s up.
-- Artist Profiles – Each artist gets their own artsy corner of the platform to flex their skills and tell their story.
-
-🛠️ Tech Behind the Magic
-- Backend: Python (Django – solid, like your favorite sketchbook)
-- Database: MySQL (storing art data like it’s the Louvre)
-- Authentication: JWT (for login that doesn’t mess around)
-
-📡 API Endpoints :
 
 - Users :
           - /users/viewUsers , Get, View users
@@ -83,11 +63,7 @@ Artiqo is your go-to online marketplace that connects local artists (aka creativ
           - /cart/{userId}/remove/{productId}	,DELETE,	Remove a product from the cart
 - Orders:
           - /order/orderartview/ Get,     to view the orders
-          
-- Admin:
-          -  /admin/          ,Get,   to vieww the admin page
-
-
+           
 
 Next Steps:
 
@@ -104,25 +80,5 @@ Cart view (cart.html)
 ✅ Payment System:
 Secure payments with idempotency to avoid double charges or chaos. source  
 Payment status updates included: pending, completed, failed.
-
-
-✅ Frontend: React.js
-
-✅  API Endpoints :
-- Users :
-          - /users/{userId}/profile	,GET,	View a user's profile
-          - /users/{userId}/profile	,PUT,	Update user profile
-- Products:	
-          /products	,GET,	View all products
-          /products	,POST,	Artists can add a new product
-          /products/{productId}	,PUT,	Update product details
-          /products/{productId}/remove	,DELETE,	Delete a product
--Orders:
-          /orders/{userId}	,GET,	View all orders by the user
-          /orders/{orderId}	,GET,	View a specific order
-          /orders/{userId}/add	,POST,	Create a new order
-          /orders/{userId}/cancel	,PUT,	Cancel an order (status update)
-- Payments	
-          /payment/{paymentId}	,POST,	Make a payment
 
 
