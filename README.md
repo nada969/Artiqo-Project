@@ -49,15 +49,15 @@ Build an online marketplace where local artists can showcase and sell their draw
 **API Design:**
 
 - Users :
-****GET****                                    https://Artiqo.com/api/v1/users/viewUsers
+- ****GET****                                    https://Artiqo.com/api/v1/users/viewUsers
 
 Retrieve all users
 
  Response:
 
-- 200: OK
-- 404: Not Found
-- 500: Internal Server Error
+      - 200: OK
+      - 404: Not Found
+      - 500: Internal Server Error
 
 ****POST****                                    https://Artiqo.com/api/v1/users/register
 
@@ -73,10 +73,10 @@ Request:
 
  Response:
 
-- 201: User Created
-- 400: Bad Request
-- 405: method not allowed (if I choose invalid HTTP method)
-- 500: Internal Server Error
+     - 201: User Created
+     - 400: Bad Request
+     - 405: method not allowed (if I choose invalid HTTP method)
+     - 500: Internal Server Error
 
 ****POST****                                    https://Artiqo.com/api/v1/users/login
 
@@ -91,38 +91,31 @@ Request:
 
  Response:
 
-- 201: User login
-- 400: Bad Request
-- 401: Unauthorized (username and password don’t match)
-- 405: method not allowed (if I choose invalid HTTP method)
-- 500: Internal Server Error
+      - 201: User login
+      - 400: Bad Request
+      - 401: Unauthorized (username and password don’t match)
+      - 405: method not allowed (if I choose invalid HTTP method)
+      - 500: Internal Server Error
             
 - Products:	
-          - /products/{productId}	,GET,	View a single product
-          - /products/products     , Get, view all products
-- Cart:	
-          - /cart/{userId}	,GET,	View the user’s cart
-          - /cart/{userId}/add	,POST,	Add a product to the cart
-          - /cart/{userId}/update	,PUT,	Update product quantity
-          - /cart/{userId}/remove/{productId}	,DELETE,	Remove a product from the cart
+          - ****GET****                                    https://Artiqo.com/api/v1/product/products
+
+Retrieve all Products
+
+ Response:
+      
+      - 200: OK
+      - 404: Not Found
+      - 500: Internal Server Error
+
 - Orders:
-          - /order/orderartview/ Get,     to view the orders
-           
+          - ****GET****                                    https://Artiqo.com/api/v1/order/orderartview
 
-Next Steps:
+Retrieve all Special Art Orders 
 
-✅ Implement the order workflow:
-Users place an order via neworder.html.
-Send order requests to the artist via email.
-✅ Implement the cart functionality:
-If the user is logged in, items are added to the cart.
-If the user is not logged in, redirect them to login.html.
-✅ Implement user authentication features:
-Logout functionality
-Profile management (profile.html)
-Cart view (cart.html)
-✅ Payment System:
-Secure payments with idempotency to avoid double charges or chaos. source  
-Payment status updates included: pending, completed, failed.
+ Response:
 
-
+      - 200: OK
+      - 404: Not Found
+      - 500: Internal Server Error
+                 
