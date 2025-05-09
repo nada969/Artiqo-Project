@@ -27,3 +27,5 @@ urlpatterns = [
     path('cart',include('cart.urls')),
     path('api/',include('apis.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'artiqo.views.handler404'

@@ -40,11 +40,11 @@ def user_login(request):
         password = request.data.get('password')
 
         user = None
-        if '@' in username:
-            try:
-                user = Users.objects.get(email=username)
-            except ObjectDoesNotExist:
-                pass
+        # if '@' in username:
+        #     try:
+        #         user = Users.objects.get(email=username)
+        #     except ObjectDoesNotExist:
+        #         pass
 
         if not user:
             user = authenticate(username=username, password=password)
