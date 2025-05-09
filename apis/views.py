@@ -38,13 +38,14 @@ def user_login(request):
     if request.method == 'POST':
         username = request.data.get('username')
         password = request.data.get('password')
+        serializer = UserSerializer(data=request.data)
 
         user = None
-        # if '@' in username:
-        #     try:
-        #         user = Users.objects.get(email=username)
-        #     except ObjectDoesNotExist:
-        #         pass
+        if '@' in username:
+            try:
+                user = Users.objects.get(email=username)
+            except ObjectDoesNotExist:
+                pass
 
         if not user:
             user = authenticate(username=username, password=password)
