@@ -49,7 +49,7 @@ Build an online marketplace where local artists can showcase and sell their draw
 **API Design:**
 
 - Users :
-- ****GET****                                    https://Artiqo.com/api/v1/users/viewUsers
+****GET****                                    https://Artiqo.com/api/v1/users/viewUsers
 
 Retrieve all users
 
@@ -98,7 +98,7 @@ Request:
       - 500: Internal Server Error
             
 - Products:	
-          - ****GET****                                    https://Artiqo.com/api/v1/product/products
+  ****GET****                                    https://Artiqo.com/api/v1/product/products
 
 Retrieve all Products
 
@@ -109,7 +109,7 @@ Retrieve all Products
       - 500: Internal Server Error
 
 - Orders:
-          - ****GET****                                    https://Artiqo.com/api/v1/order/orderartview
+****GET****                                    https://Artiqo.com/api/v1/order/orderartview
 
 Retrieve all Special Art Orders 
 
