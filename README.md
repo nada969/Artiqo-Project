@@ -49,9 +49,53 @@ Build an online marketplace where local artists can showcase and sell their draw
 **API Design:**
 
 - Users :
-          - /users/viewUsers , Get, View users
-          - /users/register	,POST,	Register a new user
-          - /users/login	,POST,	Log in and get that sweet access
+****GET****                                    https://Artiqo.com/api/v1/users/viewUsers
+
+Retrieve all users
+
+ Response:
+
+- 200: OK
+- 404: Not Found
+- 500: Internal Server Error
+
+****POST****                                    https://Artiqo.com/api/v1/users/register
+
+Request:
+
+```json
+{
+    "username": "username",
+    "email": "email",
+    "password": "password"
+}
+```
+
+ Response:
+
+- 201: User Created
+- 400: Bad Request
+- 405: method not allowed (if I choose invalid HTTP method)
+- 500: Internal Server Error
+
+****POST****                                    https://Artiqo.com/api/v1/users/login
+
+Request:
+
+```json
+{
+    "username": "username",
+    "password": "password"
+}
+```
+
+ Response:
+
+- 201: User login
+- 400: Bad Request
+- 401: Unauthorized (username and password don’t match)
+- 405: method not allowed (if I choose invalid HTTP method)
+- 500: Internal Server Error
             
 - Products:	
           - /products/{productId}	,GET,	View a single product
