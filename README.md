@@ -100,7 +100,7 @@ Request:
             
 - Products:
   
-  ****GET****                                    https://Artiqo.com/api/v1/product/products
+****GET****                                    https://Artiqo.com/api/v1/product/products
 
 Retrieve all Products
 
