@@ -111,7 +111,7 @@ Retrieve all Products
       - 500: Internal Server Error
 
 - Orders:
-- 
+  
 ****GET****                                    https://Artiqo.com/api/v1/order/orderartview
 
 Retrieve all Special Art Orders 
