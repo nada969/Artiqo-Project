@@ -49,6 +49,7 @@ Build an online marketplace where local artists can showcase and sell their draw
 **API Design:**
 
 - Users :
+  
 ****GET****                                    https://Artiqo.com/api/v1/users/viewUsers
 
 Retrieve all users
@@ -97,7 +98,8 @@ Request:
       - 405: method not allowed (if I choose invalid HTTP method)
       - 500: Internal Server Error
             
-- Products:	
+- Products:
+  
   ****GET****                                    https://Artiqo.com/api/v1/product/products
 
 Retrieve all Products
@@ -109,6 +111,7 @@ Retrieve all Products
       - 500: Internal Server Error
 
 - Orders:
+- 
 ****GET****                                    https://Artiqo.com/api/v1/order/orderartview
 
 Retrieve all Special Art Orders 
