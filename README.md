@@ -122,7 +122,7 @@ Retrieve all Special Art Orders
       - 404: Not Found
       - 500: Internal Server Error
 ---
-**mplementing Authorization :**
+**Implementing Authorization :**
 
 Artist:
 
