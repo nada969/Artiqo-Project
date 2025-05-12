@@ -121,4 +121,22 @@ Retrieve all Special Art Orders
       - 200: OK
       - 404: Not Found
       - 500: Internal Server Error
-                 
+---
+**mplementing Authorization :**
+
+Artist:
+
+- upload his art
+- edit item details
+- delete item
+- show the ordered item from his arts
+- accept the special order or not
+
+Client:
+
+- Browse products
+- place order from existing items
+- place special order
+- browse own orders
+- Add to cart
+- Review items
