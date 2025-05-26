@@ -24,17 +24,24 @@ SECRET_KEY = 'django-insecure-3#ufrq*o2na52di15gu#p)s#*c3zssz0a+=#z=x0_i(182zx8q
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+##### Table name = app_name + "_" + model_name (lowercase)
+##### AUTH_USER_MODEL = 'users.Users'
+#                   ↑     ↑
+#                  app   model
+#                       
+# Results in table: users_users
+AUTH_USER_MODEL = 'users.Users'
 
 # Application definition
 
 INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
-    # 'rest_framework_simplejwt',
+    'rest_framework_simplejwt',
 
 
     'django.contrib.admin',
@@ -173,7 +180,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = '@example.com'
 EMAIL_HOST_PASSWORD = 'your_email_password'  # Use an App Password if using Gmail
 
-AUTH_USER_MODEL = 'users.Users'
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [

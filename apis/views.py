@@ -11,7 +11,9 @@ from rest_framework.authtoken.models import Token
 # from rest_framework.permissions import IsAuthenticated
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth import authenticate 
+from django.contrib.auth import get_user_model
 
+User = get_user_model()  # Gets your Users model
 
 # @api_view(['GET','POST'])
 class UserListCreateAPIView(generics.ListCreateAPIView):
@@ -23,14 +25,37 @@ class UserListCreateAPIView(generics.ListCreateAPIView):
 # class RegisterAPI(generics.GenericAPIView):
 #     serializer_class = RegisterSerializer
     
+# @api_view(['POST'])
+# def RegisterAPI(request):
+#     if request.method == 'POST':
+#         serializer = UserSerializer(data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 @api_view(['POST'])
 def RegisterAPI(request):
-    if request.method == 'POST':
-        serializer = UserSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    serializer = UserSerializer(data=request.data)
+    if serializer.is_valid():
+        user = serializer.save()
+        
+        # Debug: Check which table the user was saved to
+        print(f"User saved to table: {user._meta.db_table}")  # Should print: users_users
+        print(f"User ID: {user.pk}")
+        
+        if not user.pk:
+            return Response({'detail': 'User was not saved properly'}, status=500)
+
+        token, _ = Token.objects.get_or_create(user=user)
+        return Response({
+            "user": serializer.data,
+            "token": token.key,
+            "user_id": user.pk  # Add this to confirm
+        }, status=status.HTTP_201_CREATED)
+
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 
 @api_view(['POST'])
