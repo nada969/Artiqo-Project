@@ -21,25 +21,14 @@ class UserListCreateAPIView(generics.ListCreateAPIView):
     serializer_class = UserSerializer
 
 
-# Register API
-# class RegisterAPI(generics.GenericAPIView):
-#     serializer_class = RegisterSerializer
-    
-# @api_view(['POST'])
-# def RegisterAPI(request):
-#     if request.method == 'POST':
-#         serializer = UserSerializer(data=request.data)
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response(serializer.data, status=status.HTTP_201_CREATED)
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
 def RegisterAPI(request):
     serializer = UserSerializer(data=request.data)
     if serializer.is_valid():
         user = serializer.save()
-        
+        user.is_active = True  # Add this line
+        user.save()
         # Debug: Check which table the user was saved to
         print(f"User saved to table: {user._meta.db_table}")  # Should print: users_users
         print(f"User ID: {user.pk}")
@@ -47,7 +36,7 @@ def RegisterAPI(request):
         if not user.pk:
             return Response({'detail': 'User was not saved properly'}, status=500)
 
-        token, _ = Token.objects.get_or_create(user=user)
+        token, created = Token.objects.get_or_create(user=user)        
         return Response({
             "user": serializer.data,
             "token": token.key,
@@ -55,32 +44,24 @@ def RegisterAPI(request):
         }, status=status.HTTP_201_CREATED)
 
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
+from django.contrib.auth.hashers import check_password
 
 @api_view(['POST'])
 def user_login(request):
     if request.method == 'POST':
         username = request.data.get('username')
         password = request.data.get('password')
-        serializer = UserSerializer(data=request.data)
+        if not username or not password:
+            return Response({"error":"username and password are required"},status=status.HTTP_400_BAD_REQUEST)
+       
+        user = authenticate(request, username=username, password=password)
+        if user :
+            token, created = Token.objects.get_or_create(user=user)
+            return Response({"token": token.key}, status=status.HTTP_200_OK)
+        
+        return Response({"error":"Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
+        
 
-        user = None
-        if '@' in username:
-            try:
-                user = Users.objects.get(email=username)
-            except ObjectDoesNotExist:
-                pass
-
-        if not user:
-            user = authenticate(username=username, password=password)
-
-        if user:
-            token, _ = Token.objects.get_or_create(user=user)
-            return Response({'token': token.key}, status=status.HTTP_200_OK)
-
-        return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
-    
 # @api_view(['POST'])
 # @permission_classes([IsAuthenticated])
 # def user_logout(request):

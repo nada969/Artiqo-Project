@@ -30,8 +30,8 @@ ALLOWED_HOSTS = ['*']
 
 ##### Table name = app_name + "_" + model_name (lowercase)
 ##### AUTH_USER_MODEL = 'users.Users'
-#                   ↑     ↑
-#                  app   model
+#                          ↑     ↑
+#                         app   model
 #                       
 # Results in table: users_users
 AUTH_USER_MODEL = 'users.Users'
@@ -168,9 +168,9 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_UNIQUE_EMAIL = True
 
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend'
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend', 
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

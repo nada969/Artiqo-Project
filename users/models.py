@@ -16,10 +16,11 @@ class Users(AbstractUser):
         max_length=10
     )
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username'] # or [] if you only require email
+    USERNAME_FIELD = 'username'
+    is_active = models.BooleanField(default=True)  # ✅ Required!
+    # REQUIRED_FIELDS = ['username'] # or [] if you only require email
 
     def __str__(self):
-        return self.email
+        return self.username
     
  
