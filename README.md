@@ -140,6 +140,6 @@ Client:
 - browse own orders
 - Add to cart
 - Review items
-
+---
 DataBase Design:
 ![image](https://github.com/user-attachments/assets/671277ee-9210-40d1-99c8-c1235dbfd379)
