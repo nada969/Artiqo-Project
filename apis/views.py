@@ -2,7 +2,7 @@ from rest_framework import generics , status
 from users.models import Users
 from users.serializers import UserSerializer  
 from product.models import Product
-from product.serializers import ProductSerializer
+from product.serializers import ProductSerializer 
 from order.models import OrderArt
 from order.serializers import OrderArtSerializer
 from rest_framework.response import Response
@@ -74,11 +74,41 @@ def user_login(request):
 #             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
-
-class ProductArtListCreateAPIView(generics.ListCreateAPIView):
+# ListCreateAPIView:just for GET (list all) & POST (create new)
+class ProductArtListCreateAPIView(generics.ListCreateAPIView):       
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    # serializer_class = ProSer
 
+
+@api_view(['GET','POST'])
+def ProductI(request):
+    if request.method == 'GET':
+        item = Product.objects.all()
+        id_num = request.query_params.get('id_num')
+        name = request.query_params.get('name')
+        ordering = request.query_params.get('ordering')
+        if id_num:
+            item = item.filter(id__exact=id_num)
+            
+        if name:
+            item = item.filter(name__contains=name)
+            
+        if ordering:
+            order_items = ordering.split(',')
+            item = item.order_by(*order_items)
+            
+        serialized_item = ProductSerializer(item,many=True)
+        return Response(serialized_item.data)
+    if request.method == 'POST':
+        serialized_item = ProductSerializer(data=request.data)
+        serialized_item.is_valid(raise_exception=True)
+        serialized_item.save()
+        return Response(serialized_item.data,status.HTTP_201_CREATED)
+
+class ProductItem(generics.RetrieveAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
 
 class OrderArtListCreateAPIView(generics.ListCreateAPIView):
     queryset = OrderArt.objects.all()

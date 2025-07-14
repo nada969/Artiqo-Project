@@ -110,6 +110,29 @@ Retrieve all Products
       - 404: Not Found
       - 500: Internal Server Error
 
+****GET****                                    https://Artiqo.com/api/v1/product/products/<pk:id>
+
+Retrieve all specific product
+
+ Response:
+      
+      - 200: OK
+      - 404: Not Found
+      - 500: Internal Server Error
+
+****GET****                                    
+
+http://127.0.0.1:8000/api/products?ordering=price : Retrieve all products ordered by price ASC
+http://127.0.0.1:8000/api/products?ordering=-price  : Retrieve all products ordered by price DESC
+http://127.0.0.1:8000/api/products?ordering=price,id : Retrieve all products ordered by price first then by id ASC
+
+ Response:
+      
+      - 200: OK
+      - 404: Not Found
+      - 500: Internal Server Error
+
+
 - Orders:
   
 ****GET****                                    https://Artiqo.com/api/v1/order/orderartview
